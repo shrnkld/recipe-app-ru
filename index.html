@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quick & Healthy Recipe PWA for busy parents - find nutritious, affordable meals in under 20 minutes">
+    <meta name="theme-color" content="#4CAF50">
+    <title>QuickMeal - Healthy Recipes for Busy Parents</title>
+    
+    <!-- PWA Support -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192x192.png">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="assets/data/recipes.json" as="fetch" crossorigin="anonymous">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="header__logo">QuickMeal</h1>
+            <p class="header__tagline">Healthy meals in minutes</p>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="filter-section">
+            <div class="container">
+                <h2 class="filter-section__title">Find your perfect meal</h2>
+                <p class="filter-section__subtitle">What matters most to you today?</p>
+                
+                <div class="filter-buttons">
+                    <button class="filter-button filter-button--time" data-filter="time">
+                        <span class="filter-button__icon">⏱️</span>
+                        <span class="filter-button__text">Quick</span>
+                        <span class="filter-button__subtext">Under 20 min</span>
+                    </button>
+                    
+                    <button class="filter-button filter-button--nutrition" data-filter="nutrition">
+                        <span class="filter-button__icon">🥗</span>
+                        <span class="filter-button__text">Nutritious</span>
+                        <span class="filter-button__subtext">Balanced meals</span>
+                    </button>
+                    
+                    <button class="filter-button filter-button--budget" data-filter="budget">
+                        <span class="filter-button__icon">💰</span>
+                        <span class="filter-button__text">Budget</span>
+                        <span class="filter-button__subtext">Affordable</span>
+                    </button>
+                </div>
+                
+                <div class="active-filters" id="activeFilters">
+                    <!-- Active filters will be displayed here -->
+                </div>
+            </div>
+        </section>
+
+        <section class="recipes-section">
+            <div class="container">
+                <div class="recipes-container" id="recipesContainer">
+                    <!-- Recipe cards will be dynamically inserted here -->
+                    <div class="recipes-placeholder">
+                        <p>Select filters above to find your perfect meal</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="recipe-detail" id="recipeDetail">
+        <!-- Recipe detail view will be dynamically inserted here -->
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 QuickMeal - Healthy Recipes for Busy Parents</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/utils/helpers.js"></script>
+    <script src="js/data/recipeData.js"></script>
+    <script src="js/components/recipeCard.js"></script>
+    <script src="js/components/recipeDetail.js"></script>
+    <script src="js/components/filterSystem.js"></script>
+    <script src="js/app.js"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('ServiceWorker registration failed: ', error);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>

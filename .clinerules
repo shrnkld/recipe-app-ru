@@ -1,0 +1,68 @@
+# Cline Rules: Quick & Healthy Recipe PWA
+
+## Project Intelligence
+
+This file captures important patterns, preferences, and project intelligence for the Quick & Healthy Recipe PWA project. It will be updated as we discover and validate new patterns.
+
+## Code Style & Conventions
+
+### HTML
+- Use semantic HTML5 elements (header, nav, main, section, article, footer)
+- Include appropriate ARIA attributes for accessibility
+- Use BEM naming convention for CSS classes
+
+### CSS
+- Mobile-first approach with media queries for larger screens
+- Use CSS variables for colors, spacing, and typography
+- Flexbox for one-dimensional layouts, Grid for two-dimensional layouts
+- Avoid !important declarations
+
+### JavaScript
+- ES6+ syntax with const/let (no var)
+- Function expressions over function declarations
+- Descriptive variable and function names
+- Modular code organization with clear separation of concerns
+
+## Project Structure
+
+```
+/
+├── index.html              # Main entry point
+├── manifest.json           # PWA manifest
+├── service-worker.js       # Service worker for offline functionality
+├── assets/                 # Static assets
+│   ├── images/             # Image files
+│   ├── icons/              # App icons
+│   └── data/               # JSON data files
+├── css/                    # Stylesheets
+│   ├── main.css            # Main stylesheet
+│   ├── components/         # Component-specific styles
+│   └── utilities.css       # Utility classes
+└── js/                     # JavaScript files
+    ├── app.js              # Main application logic
+    ├── components/         # UI components
+    ├── utils/              # Utility functions
+    └── data/               # Data handling
+```
+
+## User Experience Priorities
+
+1. Speed and simplicity over feature richness
+2. Clear, accessible UI with minimal cognitive load
+3. Offline functionality as a core feature, not an add-on
+4. Mobile-optimized experience with touch-friendly UI elements
+
+## Development Workflow
+
+1. Document changes in Memory Bank before implementation
+2. Implement features in small, testable increments
+3. Test on multiple devices and browsers
+4. Update progress.md after significant changes
+
+## Known Challenges
+
+- Balancing simplicity with sufficient filtering options
+- Ensuring offline functionality works seamlessly
+- Creating an intuitive UI that requires minimal cognitive load
+
+This document will evolve as we work on the project and discover new patterns and preferences.
